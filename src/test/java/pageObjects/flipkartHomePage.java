@@ -5,12 +5,12 @@ import org.openqa.selenium.WebDriver;
 
 public class flipkartHomePage {
 	WebDriver driver;
-	By loginPopUp         = By.xpath("//button[@class='_2KpZ6l _2doB4z']");
+	By loginPopUpClose     = By.xpath("//*[text()='Login']/parent::span/parent::div/parent::div/parent::div/parent::div/button");
 	By searhInputField     = By.xpath("//input[@name='q']");
-	By autoSuggestedResult = By.xpath("(//a[@class='_3izBDY'])[2]");
+	By autoSuggestedResult = By.xpath("(//a[contains(@href,'search?q')])[2]");
 	By connectivityOption  = By.xpath("//div[text()='Connectivity']");
 	By wifiOnlyOption      = By.xpath("//div[text()='Wi-Fi Only']");
-	By resultItem          = By.xpath("(//div[@class='col col-7-12'])[2]/div[1]");
+	By resultItem          = By.xpath("(//div[contains(@data-tkid,'SEARCH')])[2]/a");
 	
 	public flipkartHomePage(WebDriver driver)
 	{
@@ -18,7 +18,7 @@ public class flipkartHomePage {
 	}
 	public void clickOnloginpopupCloseBtn()
 	{
-		driver.findElement(loginPopUp).click();
+		driver.findElement(loginPopUpClose).click();
 	}
 	public void enterSearchQuery(String query)
 	{
